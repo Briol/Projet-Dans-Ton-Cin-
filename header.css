@@ -1,0 +1,69 @@
+body{
+    margin: 0;
+    font-family: Montserrat;
+}
+
+header{
+    width:100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 2px #707070;
+}
+
+#boite{
+    width: 90%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+#logo{
+    width: 90px;
+}
+
+nav{
+    width:80%;
+}
+
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.puce{
+    width: 100px;
+    border: 1px #9b9b9b solid;
+    text-align: center;
+    font-size: 23px;
+}
+
+.puce2{
+    width: 130px;
+    border: 1px #9b9b9b solid;
+    text-align: center;
+    font-size: 23px;
+}
+
+a{
+    color: #000;
+    text-decoration: none;
+}
+
+#barreRecherche{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3px;
+    border: 1px solid #9b9b9b;
+}
+
+#search{
+    border: none;
+}
+
