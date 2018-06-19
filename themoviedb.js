@@ -10,11 +10,11 @@
 var theMovieDb = {};
 
 theMovieDb.common = {
-  api_key: "YOUR_KEY",
+  api_key: "a8d5b03f58011439084f80bc8e0a1603",
   base_uri: "http://api.themoviedb.org/3/",
   images_uri: "http://image.tmdb.org/t/p/",
   timeout: 5000,
-  language: "en-US",
+  language: "fr-FR",
   generateQuery: function(options) {
     'use strict';
     var myOptions, query, option;
