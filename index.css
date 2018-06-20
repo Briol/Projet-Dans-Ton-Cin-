@@ -1,0 +1,13 @@
+body{
+    margin: 0;
+    font-family: Montserrat;
+    background: red;
+}
+
+#boiteCarrousel{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
