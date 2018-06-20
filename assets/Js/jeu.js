@@ -1,3 +1,7 @@
+var score = $(".score").text();
+
+$(".fill").css("height",score);
+
 var Trivia = {};
 
 Trivia.Game = function () {

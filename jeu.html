@@ -39,7 +39,7 @@
     <div class="circle">
         <div class="fill">
         </div>
-        <h3 class="score">50</h3>
+        <h3 class="score">0</h3>
     </div>
 </div>
 <script src="js/themoviedb.min.js"></script>
@@ -47,5 +47,13 @@
 </body>
 <script type="text/javascript" src="assets/Js/api.js"></script>
 <script type="text/javascript" src="assets/Js/jeu.js"></script>
+
+<script>
+    var scoreTotal = 0;
+    $("#next").click(function(){
+        scoreTotal++;
+        $(".score").html(scoreTotal);
+    });
+</script>
 </body>
 </html>
