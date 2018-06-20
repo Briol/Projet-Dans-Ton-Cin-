@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dans Ton Ciné</title>
+    <link rel="stylesheet" href="assets/CSS/search.css" />
+    <link rel="stylesheet" href="assets/CSS/header.css" />
+</head>
+<body>
+    <header>
+        <div id="boiteHeader">
+            <img src="assets/image/logo.png" alt="logo Dans Ton Ciné" id="logo">
+            <nav>
+                <ul>
+                    <li><div class="puce"><a href="#">Accueil</a></div></li>
+                    <li><div class="puce"><a href="#">À Venir</a></div></li>
+                    <li><div class="puce"><a href="#">Genre</a></div></li>
+                    <li><div class="puce2"><a href="#">Connexion</a></div></li>
+                </ul>
+            </nav>
+            <div id="barreRecherche">
+                <input type="text" name="search" id="search" placeholder="rechercher">
+                <input type="image" name="btnLoupe" src="assets/image/magnifier.png" id="barreRechercheSubmit">
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div id="container">
+            <div id="box1">
+                <input type="text" name="advancedSearch" id="advancedSearch" placeholder="Recherche par mots-clés">
+                <div id="rated">
+                    Popularité
+                    <div id="starRated">
+                        <img src="assets/image/star.png">
+                        <img src="assets/image/star.png">
+                        <img src="assets/image/star.png">
+                        <img src="assets/image/star.png">
+                        <img src="assets/image/star.png">
+                    </div>
+                </div>
+            </div>
+            <div id="box2">
+                <select name="genre" class="box2">
+                    <option>----------</option>
+                    <option>Horreur</option>
+                    <option>Action</option>
+                    <option>Comédie</option>
+                    <option>Romantique</option>
+                    <option>Film d'auteur</option>
+                </select>
+                <input type="date" name="release" id="release" class="box2">
+            </div>
+            <div id="box3">
+                <input type="button" name="searchSubmit" id="searchSubmit" value="Rechercher">
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="searchBody">
+        <div id="result">
+            <select>
+                <option>10</option>
+                <option>20</option>
+                <option>50</option>
+            </select>
+
+            <div class="boxResult">
+                <div class="cercleImg">
+                    <img src="assets/image/364998.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg">
+                </div>
+                <h4>Titre Film</h4>
+                <div>
+                    <img src="assets/image/star.png">
+                    <img src="assets/image/star.png">
+                    <img src="assets/image/star.png">
+                    <img src="assets/image/star.png">
+                    <img src="assets/image/star.png">
+                </div>
+                <h6>Date/Genre</h6>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
