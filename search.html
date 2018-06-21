@@ -5,8 +5,10 @@
     <title>Dans Ton Ciné</title>
     <link rel="stylesheet" href="search.css" />
     <link rel="stylesheet" href="header.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/themoviedb.js"></script>
 </head>
-<body>
+<body onload="loadAgeSelector()">
     <header>
         <div id="boiteHeader">
             <img src="assets/image/logo.png" alt="logo Dans Ton Ciné" id="logo">
@@ -41,16 +43,21 @@
                 </div>
             </div>
             <div id="box2">
-                <select name="genre" class="box2">
-                    <option>----------</option>
-                    <option>Horreur</option>
-                    <option>Action</option>
-                    <option>Comédie</option>
-                    <option>Romantique</option>
-                    <option>Film d'auteur</option>
-                </select>
-                <input type="date" name="release" id="release" class="box2">
             </div>
+            <select id="yearselect"></select>
+            <script>
+                function loadAgeSelector()
+                {
+                    let startyear = 1950;
+                    let endyear = 2019;
+                    for (let i = startyear;i<=endyear;i++){
+                        node=document.createElement("Option");
+                        textnode=document.createTextNode(i);
+                        node.appendChild(textnode);
+                        document.getElementById("yearselect").appendChild(node);
+                    }
+                }
+            </script>
             <div id="box3">
                 <input type="button" name="searchSubmit" id="searchSubmit" value="Rechercher">
             </div>
@@ -83,7 +90,7 @@
             </div>
         </div>
     </section>
-
+    <script src="src/components/Search.js"></script>
     <script src="assets/JS/rated.js"></script>
 </body>
 </html>
