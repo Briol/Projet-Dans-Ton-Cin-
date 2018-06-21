@@ -5,8 +5,10 @@
     <title>Dans Ton Ciné</title>
     <link rel="stylesheet" href="search.css" />
     <link rel="stylesheet" href="header.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="lib/themoviedb.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="assets/js/themoviedb.js"></script>
+    <script src="src/components/Search.js"></script>
 </head>
 <body onload="loadAgeSelector()">
     <header>
@@ -42,10 +44,45 @@
                     </div>
                 </div>
             </div>
+
+            <form name="myForm">
             <div id="box2">
+                <select name="Ggenre" class="box2">
+                    <option>----------</option>
+                    <option value="28">Action</option>
+                    <option value="12">Aventure</option>
+                    <option value="16">Animation</option>
+                    <option value="35"></option>Comédie</option>
+                    <option value="80">Crime</option>
+                    <option value="99">Documentaire</option>
+                    <option value="18">Drame</option>
+                    <option value="10751">Familial</option>
+                    <option value="14">Fantastique</option>
+                    <option value="36">Histoire</option>
+                    <option value="27">Horreur</option>
+                    <option value="10402">Musique</option>
+                    <option value="9648">Mystère</option>
+                    <option value="10749">Romance</option>
+                    <option value="878">Science-Fiction</option>
+                    <option value="10770"></option>Téléfilm</option>
+                    <option value="53">Thriller</option>
+                    <option value="10752">Guerre</option>
+                    <option value="37">Western</option>
+                </select>
+                
             </div>
-            <select id="yearselect"></select>
+           
+                      <select id="yearselect" name="Ddate"  ></select>       
+            <input class="btn"  type="button" onclick="myFunction()"></input>
+        </form>  
+
             <script>
+
+
+
+
+
+
                 function loadAgeSelector()
                 {
                     let startyear = 1950;
@@ -55,8 +92,32 @@
                         textnode=document.createTextNode(i);
                         node.appendChild(textnode);
                         document.getElementById("yearselect").appendChild(node);
+                       
+                       
                     }
                 }
+           
+
+                function myFunction() {
+
+                    var date = document.forms["myForm"]["Ddate"].value ;
+                    var genre = document.forms["myForm"]["Ggenre"].value ;
+                    console.log(genre)
+              
+                     var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url":
+          "https://api.themoviedb.org/3/discover/movie?api_key=a8d5b03f58011439084f80bc8e0a1603&language=fr-FR&sort_by=popularity.desc&primary_release_year="+date+"&with_genres="+genre+"",
+          "method": "GET",
+          "headers": {},
+          "data": "{}"
+            }
+             $.ajax(settings).done(function (response) {
+             console.log(response); 
+             });
+            }
+
             </script>
             <div id="box3">
                 <input type="button" name="searchSubmit" id="searchSubmit" value="Rechercher">
@@ -90,7 +151,7 @@
             </div>
         </div>
     </section>
-    <script src="src/components/Search.js"></script>
+
     <script src="assets/JS/rated.js"></script>
 </body>
 </html>

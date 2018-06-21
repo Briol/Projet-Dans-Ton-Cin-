@@ -19,6 +19,13 @@ body{
     justify-content: space-around;
 }
 
+.btn{
+
+   width: 100px;
+   height: 30px;
+
+}
+
 #box1 input{
     width: 30%;
     font-family: Montserrat;
