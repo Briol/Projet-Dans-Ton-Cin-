@@ -82,7 +82,7 @@
             </div>
             <select id="yearselect" name="Ddate"></select>
             <select id="pageNumber" name="Ppage"></select>
-            <input class="btn" type="button" onclick="myFunction()">
+            <input class="btn" type="button" onclick="search()">
         </form>
 
 
@@ -112,7 +112,7 @@
         }
     }
 
-    function myFunction ()
+    function search ()
     {
         let date = document.forms['myForm']['Ddate'].value
         let genre = document.forms['myForm']['Ggenre'].value
