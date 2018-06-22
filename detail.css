@@ -1,0 +1,154 @@
+body{
+    background: #f3e9ee;
+}
+
+#description{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+#affiche{
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    box-shadow: black 1px 1px 10px;
+}
+
+#affiche img{
+    width: 500px;
+}
+
+#affiche a{
+    background: white;
+    position: absolute;
+    top: 530px;
+    left: 238px;
+    display: flex;
+    align-items: center;
+    width: 204px;
+    justify-content: space-around;
+    height: 60px;
+    border-radius: 20px;
+}
+
+#affiche a img{
+    width: 50px;
+}
+
+#textDescription{
+    width: 50%;
+    font-size: 25px;
+}
+
+#box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 460px;
+}
+
+#box1{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#box2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#box2 button{
+    background: red;
+    width: 330px;
+    height: 45px;
+    border-radius: 20px;
+    color: white;
+    font-family: Verdana;
+    font-size: 20px;
+}
+
+#box2 img{
+    width:50px ;
+}
+
+#video{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 700px;
+    margin-top: 50px;
+    background: black;
+}
+
+iframe{
+    width: 80%;
+    height: 650px;
+}
+
+#avis{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avis{
+    width: 80%;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.bordure{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: black 1px 1px 10px;
+    background: white;
+    padding: 20px;
+}
+
+.etiquette{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+#commentaire{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 600px;
+    align-items: center;
+}
+
+#boxCom{
+    background: white;
+    width: 50%;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 5px solid rgb(127, 127, 127);
+    border-radius: 50px;
+}
+
+textarea{
+    width: 500px;
+    height: 300px;
+}
+
+#boxCom img{
+    width: 50px;
+}
