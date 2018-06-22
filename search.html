@@ -44,6 +44,11 @@
         </div>
 
         <form name="myForm">
+            <select name="Ffilter" class="filter"> Trier par
+                <option value="popularity.desc">Popularité</option>
+                <option value="vote_average.desc">Note des utilisateurs</option>
+                <option value="release_date.desc">Date de sortie</option>
+            </select>
             <div class="wrapper">
                 <input type="checkbox" id="st1" value="1"/>
                 <label for="st1"></label>
@@ -117,12 +122,13 @@
         let date = document.forms['myForm']['Ddate'].value
         let genre = document.forms['myForm']['Ggenre'].value
         let page = document.forms['myForm']['Ppage'].value
+        let filtre = document.forms['myForm']['Ffilter'].value
 
         let settings = {
             'async': true,
             'crossDomain': true,
             'url':
-            'https://api.themoviedb.org/3/discover/movie?api_key=a8d5b03f58011439084f80bc8e0a1603&language=fr-FR&sort_by=popularity.desc&primary_release_year=' + date + '&with_genres=' + genre + '&page=' + page + '',
+            'https://api.themoviedb.org/3/discover/movie?api_key=a8d5b03f58011439084f80bc8e0a1603&language=fr-FR&sort_by=' + filtre + '&primary_release_year=' + date + '&with_genres=' + genre + '&page=' + page + '',
             'method': 'GET',
             'headers': {},
             'data': '{}',
@@ -134,7 +140,8 @@
                     $('div.resultBody')).append($('<img/>', {
                     'class': 'resultPic',
                     'src': 'https://image.tmdb.org/t/p/w500' + response.results[element].poster_path,
-                })).append($('<p/>', {'class': 'voteAverage', html: Math.round(response.results[element].vote_average / 2)}),
+                })).append(
+                    $('<p/>', {'class': 'voteAverage', html: Math.round(response.results[element].vote_average / 2)}),
                 )
             }
             let startpage = 1
