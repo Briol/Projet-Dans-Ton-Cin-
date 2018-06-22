@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/jeu.css" />
+    <title> Quel est ce film DTC ? </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<body>
+<div>
+    <img src="assets/pics/logodtc.png" id="logo" />
+</div>
+<div id="container">
+    <div id="menu">
+        <span id="app"></span>
+        <span id="stage"></span>
+        <span id="points"></span>
+        <span id="movs"></span>
+    </div>
+    <div id="controls">
+        <span id="next" class="hide">Suivant</span>
+    </div>
+    <div id="pic">
+        <img id="poster" src="">
+        <img id="loader" class="show" src="img/loading.gif" />
+    </div>
+    <div id="letters">
+        <ul id="letters_list">
+        </ul>
+        <div id="success" class="hide">Bien joué ! Cliquer sur suivant </div>
+        <div id="error" class="hide">Wasted ! Recharger pour rejouer . </div>
+    </div>
+    <div id="result">
+        <ul id="result_list">
+        </ul>
+    </div>
+    <div class="circle">
+        <div class="fill">
+        </div>
+        <h3 class="score">0</h3>
+    </div>
+</div>
+<script src="js/themoviedb.min.js"></script>
+<script src="js/game.js"></script>
+</body>
+<script type="text/javascript" src="assets/Js/api.js"></script>
+<script type="text/javascript" src="assets/Js/jeu.js"></script>
+
+<script>
+    var scoreTotal = 0;
+    $("#next").click(function(){
+        scoreTotal++;
+        $(".score").html(scoreTotal);
+    });
+</script>
+</body>
+</html>
