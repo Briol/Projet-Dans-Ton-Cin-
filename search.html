@@ -50,15 +50,15 @@
                 <option value="release_date.desc">Date de sortie</option>
             </select>
             <div class="wrapper">
-                <input type="checkbox" id="st1" value="1"/>
+                <input type="checkbox" name="vote" id="st1" value="5"/>
                 <label for="st1"></label>
-                <input type="checkbox" id="st2" value="2"/>
+                <input type="checkbox" name="vote" id="st2" value="4"/>
                 <label for="st2"></label>
-                <input type="checkbox" id="st3" value="3"/>
+                <input type="checkbox" name="vote" id="st3" value="3"/>
                 <label for="st3"></label>
-                <input type="checkbox" id="st4" value="4"/>
+                <input type="checkbox" name="vote" id="st4" value="2"/>
                 <label for="st4"></label>
-                <input type="checkbox" id="st5" value="5"/>
+                <input type="checkbox" name="vote" id="st5" value="1"/>
                 <label for="st5"></label>
             </div>
             <div id="box2">
@@ -121,10 +121,20 @@
 
     function search ()
     {
+        checkedValue = null
+        inputElements = document.getElementsByName('vote')
+        for (let i = 0; inputElements[i]; ++i) {
+            if (inputElements[i].checked) {
+                checkedValue = inputElements[i].value
+                break
+            }
+        }
         let date = document.forms['myForm']['Ddate'].value
         let genre = document.forms['myForm']['Ggenre'].value
         let page = document.forms['myForm']['Ppage'].value
         let filtre = document.forms['myForm']['Ffilter'].value
+
+        let vote = checkedValue;
 
         let settings = {
             'async': true,
@@ -138,13 +148,16 @@
         $.ajax(settings).done(function (response) {
             let pageNumber = response.total_pages
             for (element in response.results) {
-                $('<div/>', {'class': 'results', html: response.results[element].title}).appendTo(
-                    $('div.resultBody')).append($('<img/>', {
-                    'class': 'resultPic',
-                    'src': 'https://image.tmdb.org/t/p/w500' + response.results[element].poster_path,
-                })).append(
-                    $('<p/>', {'class': 'voteAverage', html: Math.round(response.results[element].vote_average / 2)}),
-                )
+                if (Math.round(response.results[element].vote_average / 2) >= vote) {
+                    $('<div/>', {'class': 'results', html: response.results[element].title}).appendTo(
+                        $('div.resultBody')).append($('<img/>', {
+                        'class': 'resultPic',
+                        'src': 'https://image.tmdb.org/t/p/w500' + response.results[element].poster_path,
+                    })).append(
+                        $('<p/>',
+                            {'class': 'voteAverage', html: Math.round(response.results[element].vote_average / 2)}),
+                    )
+                }
             }
             let startpage = 1
             for (let i = startpage; i <= pageNumber; i++) {
