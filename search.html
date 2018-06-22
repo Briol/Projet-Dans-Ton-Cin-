@@ -3,56 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <title>Dans Ton Ciné</title>
-    <link rel="stylesheet" href="search.css" />
-    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="search.css"/>
+    <link rel="stylesheet" href="header.css"/>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="assets/js/themoviedb.js"></script>
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="lib/themoviedb.js"></script>
     <script src="src/components/Search.js"></script>
 </head>
 <body onload="loadAgeSelector()">
-    <header>
-        <div id="boiteHeader">
-            <img src="assets/image/logo.png" alt="logo Dans Ton Ciné" id="logo">
-            <nav>
-                <ul>
-                    <li><div class="puce"><a href="#">Accueil</a></div></li>
-                    <li><div class="puce"><a href="#">À Venir</a></div></li>
-                    <li><div class="puce"><a href="#">Genre</a></div></li>
-                    <li><div class="puce2"><a href="#">Connexion</a></div></li>
-                </ul>
-            </nav>
-            <div id="barreRecherche">
-                <input type="text" name="search" id="search" placeholder="rechercher">
-                <input type="image" name="btnLoupe" src="assets/image/magnifier.png" id="barreRechercheSubmit">
-            </div>
+<header>
+    <div id="boiteHeader">
+        <img src="assets/image/logo.png" alt="logo Dans Ton Ciné" id="logo">
+        <nav>
+            <ul>
+                <li>
+                    <div class="puce"><a href="#">Accueil</a></div>
+                </li>
+                <li>
+                    <div class="puce"><a href="#">À Venir</a></div>
+                </li>
+                <li>
+                    <div class="puce"><a href="#">Genre</a></div>
+                </li>
+                <li>
+                    <div class="puce2"><a href="#">Connexion</a></div>
+                </li>
+            </ul>
+        </nav>
+        <div id="barreRecherche">
+            <input type="text" name="search" id="search" placeholder="rechercher">
+            <input type="image" name="btnLoupe" src="assets/image/magnifier.png" id="barreRechercheSubmit">
         </div>
-    </header>
+    </div>
+</header>
 
-    <section>
-        <div id="container">
-            <div id="box1">
-                <input type="text" name="advancedSearch" id="advancedSearch" placeholder="Recherche par mots-clés">
-                <div id="rated">
-                    Popularité
-                    <div id="starRated">
-                        <img src="assets/image/starFull.png" id="star1">
-                        <img src="assets/image/star.png" id="star2">
-                        <img src="assets/image/star.png" id="star3">
-                        <img src="assets/image/star.png" id="star4">
-                        <img src="assets/image/star.png" id="star5">
-                    </div>
-                </div>
+<section>
+    <div id="container">
+        <div id="box1">
+        </div>
+
+        <form name="myForm">
+            <select name="Ffilter" class="filter"> Trier par
+                <option value="popularity.desc">Popularité</option>
+                <option value="vote_average.desc">Note des utilisateurs</option>
+                <option value="release_date.desc">Date de sortie</option>
+            </select>
+            <div class="wrapper">
+                <input type="checkbox" name="vote" id="st1" value="5"/>
+                <label for="st1"></label>
+                <input type="checkbox" name="vote" id="st2" value="4"/>
+                <label for="st2"></label>
+                <input type="checkbox" name="vote" id="st3" value="3"/>
+                <label for="st3"></label>
+                <input type="checkbox" name="vote" id="st4" value="2"/>
+                <label for="st4"></label>
+                <input type="checkbox" name="vote" id="st5" value="1"/>
+                <label for="st5"></label>
             </div>
-
-            <form name="myForm">
             <div id="box2">
                 <select name="Ggenre" class="box2">
                     <option>----------</option>
                     <option value="28">Action</option>
                     <option value="12">Aventure</option>
                     <option value="16">Animation</option>
-                    <option value="35"></option>Comédie</option>
+                    <option value="35">Comédie</option>
                     <option value="80">Crime</option>
                     <option value="99">Documentaire</option>
                     <option value="18">Drame</option>
@@ -64,94 +79,97 @@
                     <option value="9648">Mystère</option>
                     <option value="10749">Romance</option>
                     <option value="878">Science-Fiction</option>
-                    <option value="10770"></option>Téléfilm</option>
+                    <option value="10770">Téléfilm</option>
                     <option value="53">Thriller</option>
                     <option value="10752">Guerre</option>
                     <option value="37">Western</option>
                 </select>
-                
             </div>
-           
-                      <select id="yearselect" name="Ddate"  ></select>       
-            <input class="btn"  type="button" onclick="myFunction()"></input>
-        </form>  
-
-            <script>
-
-
-
-
-
-
-                function loadAgeSelector()
-                {
-                    let startyear = 1950;
-                    let endyear = 2019;
-                    for (let i = startyear;i<=endyear;i++){
-                        node=document.createElement("Option");
-                        textnode=document.createTextNode(i);
-                        node.appendChild(textnode);
-                        document.getElementById("yearselect").appendChild(node);
-                       
-                       
-                    }
-                }
-           
-
-                function myFunction() {
-
-                    var date = document.forms["myForm"]["Ddate"].value ;
-                    var genre = document.forms["myForm"]["Ggenre"].value ;
-                    console.log(genre)
-              
-                     var settings = {
-          "async": true,
-          "crossDomain": true,
-          "url":
-          "https://api.themoviedb.org/3/discover/movie?api_key=a8d5b03f58011439084f80bc8e0a1603&language=fr-FR&sort_by=popularity.desc&primary_release_year="+date+"&with_genres="+genre+"",
-          "method": "GET",
-          "headers": {},
-          "data": "{}"
-            }
-             $.ajax(settings).done(function (response) {
-             console.log(response); 
-             });
-            }
-
-            </script>
-            <div id="box3">
-                <input type="button" name="searchSubmit" id="searchSubmit" value="Rechercher">
-            </div>
-        </div>
-    </section>
-
-
-
-    <section id="searchBody">
-        <div id="result">
-            <select>
-                <option>10</option>
-                <option>20</option>
-                <option>50</option>
+            <select id="yearselect" name="Ddate">
+                <option value="">----------</option>
             </select>
+            <select id="pageNumber" name="Ppage"></select>
+            <input class="btn" type="button" onclick="search()">
+        </form>
 
-            <div class="boxResult">
-                <div class="cercleImg">
-                    <img src="assets/image/364998.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg">
-                </div>
-                <h4>Titre Film</h4>
-                <div>
-                    <img src="assets/image/star.png">
-                    <img src="assets/image/star.png">
-                    <img src="assets/image/star.png">
-                    <img src="assets/image/star.png">
-                    <img src="assets/image/star.png">
-                </div>
-                <h6>Date/Genre</h6>
-            </div>
+
+        <div id="box3">
+            <input type="button" name="searchSubmit" id="searchSubmit" value="Rechercher">
         </div>
-    </section>
+    </div>
+</section>
 
-    <script src="assets/JS/rated.js"></script>
+
+<section>
+    <div class="resultBody">
+    </div>
+</section>
+
+
+<script>
+    function loadAgeSelector ()
+    {
+        let startyear = 1950
+        let endyear = 2019
+        for (let i = startyear; i <= endyear; i++) {
+            node = document.createElement('Option')
+            textnode = document.createTextNode(i)
+            node.appendChild(textnode)
+            document.getElementById('yearselect').appendChild(node)
+        }
+    }
+
+    function search ()
+    {
+        checkedValue = null
+        inputElements = document.getElementsByName('vote')
+        for (let i = 0; inputElements[i]; ++i) {
+            if (inputElements[i].checked) {
+                checkedValue = inputElements[i].value
+                break
+            }
+        }
+        let date = document.forms['myForm']['Ddate'].value
+        let genre = document.forms['myForm']['Ggenre'].value
+        let page = document.forms['myForm']['Ppage'].value
+        let filtre = document.forms['myForm']['Ffilter'].value
+
+        let vote = checkedValue;
+
+        let settings = {
+            'async': true,
+            'crossDomain': true,
+            'url':
+            'https://api.themoviedb.org/3/discover/movie?api_key=a8d5b03f58011439084f80bc8e0a1603&language=fr-FR&sort_by=' + filtre + '&primary_release_year=' + date + '&with_genres=' + genre + '&page=' + page + '',
+            'method': 'GET',
+            'headers': {},
+            'data': '{}',
+        }
+        $.ajax(settings).done(function (response) {
+            let pageNumber = response.total_pages
+            for (element in response.results) {
+                if (Math.round(response.results[element].vote_average / 2) >= vote) {
+                    $('<div/>', {'class': 'results', html: response.results[element].title}).appendTo(
+                        $('div.resultBody')).append($('<img/>', {
+                        'class': 'resultPic',
+                        'src': 'https://image.tmdb.org/t/p/w500' + response.results[element].poster_path,
+                    })).append(
+                        $('<p/>',
+                            {'class': 'voteAverage', html: Math.round(response.results[element].vote_average / 2)}),
+                    )
+                }
+            }
+            let startpage = 1
+            for (let i = startpage; i <= pageNumber; i++) {
+                node = document.createElement('Option')
+                textnode = document.createTextNode(i)
+                node.appendChild(textnode)
+                document.getElementById('pageNumber').appendChild(node)
+            }
+        })
+    }
+</script>
+
+<script src="assets/JS/rated.js"></script>
 </body>
 </html>
